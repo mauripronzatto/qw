@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quinta Serie - Práctico 3 · Ejercicio 03</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>Ejercicio 03: ¿Está en el rango 100 a 300?</h2>
+      
+    <div class="instrucciones">
+      <h3> Instrucciones</h3>
+      <p>Este ejercicio comprobará si una variable <strong>valor</strong> se encuentra en el rango de <strong>100 a 300</strong> (incluidos).</p>
+      <p>Si el valor está en el rango → mensaje positivo. Si no está en el rango →  mensaje negativo.</p>
+    </div>
+
+
+    <div id="mensaje" class="resultado" aria-live="polite">Haz clic en "Ejecutar" para verificar.</div>
+
+
+    <button id="btnEjecutar" class="btn" type="button">¡Ejecutar Ejercicio!</button>
+
+    <footer>Curso de JavaScript · Enseñanza Media | Ejercicio 03</footer>
+  </div>
+
+
+  <script>
+    function verificarRango() {
+      // usamos let (no const), como se exigió en clase
+      let valor = 250; 
+      let mensaje = document.getElementById('mensaje');
+
+  
+      mensaje.classList.remove('mensaje-correcto', 'mensaje-incorrecto');
+
+     
+      if (valor >= 100 && valor <= 300) {
+        mensaje.innerText = ' El valor ' + valor + ' está dentro del rango 100 a 300.';
+        mensaje.classList.add('mensaje-correcto');
+        console.log('verificarRango(): valor = ' + valor + ' → DENTRO DEL RANGO (100-300)');
+      } else {
+        mensaje.innerText = 'El valor ' + valor + ' NO está en el rango 100 a 300.';
+        mensaje.classList.add('mensaje-incorrecto');
+        console.log('verificarRango(): valor = ' + valor + ' → FUERA DEL RANGO (100-300)');
+      }
+    }
+
+
+    let btnEjecutar = document.getElementById('btnEjecutar');
+    btnEjecutar.onclick = verificarRango;
+
+  
+    console.log('Script cargado: botón #btnEjecutar enlazado a verificarRango; listo para ejecutar.');
+  </script>
+</body>
+</html>
